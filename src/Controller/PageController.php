@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PageController extends AbstractController
 {
-    #[Route('/page', name: 'app_page')]
+    #[Route('/', name: 'app_page')]
     public function index(
         SnippetRepository $snippets
     ): Response {
