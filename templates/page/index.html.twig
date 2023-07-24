@@ -3,7 +3,19 @@
 {% block title %}Tableau de Bord{% endblock %}
 
 {% block body %}
-{{ dump(snippets) }}
+{% for item in snippets %}
+    <div>
+    <h5>{{ item.title}}</h5>
+    <p>{{ item.content|slice (0,20)}}</p>
+    <a href="#">Voir</a>
+    </div>
 
+    <hr>
+{% endfor %}
+{# {{ dump(snippets) }} #}
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(snippets) }}
+</div>
 
 {% endblock %}
