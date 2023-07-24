@@ -27,10 +27,10 @@ class Snippet
     private ?\DateTimeInterface $editedAt = null;
 
     #[ORM\Column]
-    private ?bool $isPublished = null;
+    private ?bool $isPublished = false;
 
     #[ORM\Column]
-    private ?bool $isPublic = null;
+    private ?bool $isPublic = false;
 
     #[ORM\ManyToOne(inversedBy: 'snippets')]
     #[ORM\JoinColumn(nullable: false)]

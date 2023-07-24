@@ -17,9 +17,9 @@ class AppFixtures extends Fixture
 
         // Création d'un utilisateur de test
         $user = new User();
-        $user->setEmail('hello@codexpress')
+        $user->setEmail('hHello@codexpress')
         ->setUsername('codexpress')
-        ->setPassword('$2y$13$4UbZtgjJ2J0JSmY45CZs4uGbUbckq1R.N64JltRbz7JTVpuo3YJzi')
+        ->setPassword('$2y$13$4UbZtgjJ2J0JSmY45CZs4uGbUbckq1R.N64JltRbz7JTVpuo3YJzi') //mdp:admin
         ->setRoles(["ROLE_USER"])
         ->setIsVerified(true)
         ;
@@ -32,7 +32,7 @@ class AppFixtures extends Fixture
             $snippet = new Snippet();
             $snippet->setTitle($faker->word())
             ->setContent($faker->text(200))
-            // ->setAuthor($user)
+            ->setUser($user)
             ->setCreatedAt($faker->dateTimeBetween('-7 months'))
             ->setIsPublished(true)
             ->setIsPublic(false)
