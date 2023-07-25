@@ -4,7 +4,10 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
+<div class="container" style=" display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; width: 100vw; margin-top: 5rem;">
+
 	{% for item in snippets %}
 		<div class="card col-4 col" style="width: 20rem;">
 			<div class="card-body">
@@ -12,7 +15,7 @@
 				<h5 class="card-subtitle">{{item.user.username}}</h5>
 				<p class="card-text">{{item.content|slice(0,80)}}</p>
 				<p class="card-text">{{item.createdAt|date('d/m/Y')}}</p>
-				{# <a class="card-link" href={{ path ('show-code',{ id: item.id })}}>Voir</a> #}
+				<a class="card-link" href={{ path ('show_code',{ id: item.id })}}>Voir</a>
 			</div>
 		</div>
 	{% endfor %}
