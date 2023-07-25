@@ -54,7 +54,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('_preview_error');
+            return $this->redirectToRoute('app_page');
         }
 
         return $this->render('registration/register.html.twig', [
@@ -76,7 +76,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
 
-        // @TODO Change the redirect on success and handle or remove the flash message in your templates
+        // @TODO Modifiez la redirection en cas de succès et gérez ou supprimez le message flash dans vos modèles
         $this->addFlash('success', 'Your email address has been verified.');
 
         return $this->redirectToRoute('app_register');
