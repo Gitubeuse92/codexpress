@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\SnippetAI;
 use App\Repository\SnippetRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,8 +18,7 @@ class PageController extends AbstractController
         SnippetRepository $snippets, // Chargement du repository Snippet
         PaginatorInterface $paginator, // Chargement de PaginatorInterface
         Request $request // Chargement de Request
-    ): Response
-    {
+    ): Response {
         // On créer une requête pour récupérer les snippets
         $query = $snippets->findBy(
             ['isPublished' => true, 'isPublic' => true], // Pour sélectionner les snippets publics et publiés
@@ -32,9 +32,16 @@ class PageController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, 1 par défaut
             9 // Nombre de résultats par page
         );
-        
+
         return $this->render('page/index.html.twig', [
             'snippets' => $pagination
         ]);
+    }
+
+    // Route de test pour OpenAI PHP Package
+    #[Route('/test', name: 'test')]
+    public function openai()
+    {
+        
     }
 }
